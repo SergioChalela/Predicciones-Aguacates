@@ -45,8 +45,6 @@ Cualquier colaboración es bienvenida. Puedes contribuir mediante:
 ## Contacto
 Para preguntas, comentarios o sugerencias, puedes contactarme a través de mi perfil de GitHub o directamente por correo electrónico.
 
-## Código de los Gráficos del Análisis Exploratorio de Datos (EDA)
 
-```python
-import matplotlib.pyplot as plt
-import
+
+
