@@ -1,49 +1,73 @@
-# Proyecto: Análisis y Predicción del Precio de Aguacates
+# Car Price Prediction
 
-## Descripción del Proyecto
-Este proyecto tiene como objetivo desarrollar un análisis detallado y un modelo predictivo para estimar el precio promedio de los aguacates, basándonos en diversas características, como el tipo de aguacate, el volumen de ventas, la región y otros factores relevantes. Utilizaremos un **dataset de ventas de aguacates**, que contiene información detallada sobre precios, volúmenes y características del producto a lo largo del tiempo. Este proyecto es ideal para aprender a aplicar técnicas de Machine Learning, particularmente en problemas de regresión y análisis temporal.
+This project aims to predict car prices based on various features such as mileage, year, make, and model. We used data preprocessing, feature engineering, and applied machine learning models to achieve a robust prediction model.
 
-## Objetivo
-El objetivo principal es construir un modelo que prediga con precisión el **precio promedio** (`AveragePrice`) de un aguacate en función de las características proporcionadas en el dataset. Además, realizaremos un **análisis exploratorio de datos (EDA)** para comprender mejor las tendencias, patrones y factores más influyentes en la determinación del precio.
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Dataset](#dataset)
+- [Data Preprocessing](#data-preprocessing)
+- [Feature Engineering](#feature-engineering)
+- [Modeling](#modeling)
+- [Results](#results)
+- [Next Steps](#next-steps)
+
+## Project Overview
+
+The goal of this project is to build a predictive model that can estimate the price of a car based on its characteristics. Using machine learning techniques, we improved the model’s performance to explain a significant portion of the variability in car prices.
 
 ## Dataset
-- **Nombre:** Avocado Prices Dataset
-- **Fuente:** Kaggle (avocado.csv)
-- **Descripción de las Características:**
-  - `Date`: Fecha de registro de los precios.
-  - `AveragePrice`: Precio promedio de un aguacate.
-  - `Total Volume`: Volumen total de aguacates vendidos.
-  - `4046`, `4225`, `4770`: Volúmenes de ventas de diferentes tipos de aguacates.
-  - `Total Bags`, `Small Bags`, `Large Bags`, `XLarge Bags`: Tipos y volúmenes de bolsas de aguacates vendidos.
-  - `type`: Tipo de aguacate (convencional u orgánico).
-  - `year`: Año de la observación.
-  - `region`: Región donde se registraron las ventas.
 
-## Pasos del Proyecto
-1. **Análisis Exploratorio de Datos (EDA):** Realizar un análisis detallado de las variables disponibles para entender mejor el dataset. Esto incluirá visualizaciones de la distribución de los precios, análisis de patrones temporales y diferencias entre tipos de aguacates.
-2. **Limpieza y Preprocesamiento de Datos:** Eliminar columnas innecesarias (`Unnamed: 0`), codificar variables categóricas (`type` y `region`) y crear nuevas características a partir de la columna `Date`.
-3. **Ingeniería de Características:** Crear nuevas variables relevantes que puedan mejorar el rendimiento del modelo, como el mes o el día de la semana a partir de la columna `Date`.
-4. **Modelado Baseline:** Comenzar con un modelo de **Regresión Lineal** simple para evaluar la viabilidad de un modelo predictivo con el dataset disponible.
-5. **Evaluación del Modelo:** Utilizar métricas como **RMSE** (Root Mean Squared Error) y **R²** para evaluar la calidad de las predicciones y determinar la viabilidad del proyecto para el análisis predictivo.
+The dataset contains various features about cars, including:
+- **Price**: Target variable, indicating the car price.
+- **Mileage**: The distance the car has been driven.
+- **Year**: The manufacturing year of the car.
+- **Make**: The brand of the car.
+- **Model**: The model of the car.
 
-## Tecnologías y Herramientas
-- **Python:** Lenguaje principal para el análisis y modelado.
-- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`.
-- **Jupyter Notebook:** Para el desarrollo del análisis exploratorio y del modelo.
+## Data Preprocessing
 
-## Resultados Esperados
-- Un **análisis exploratorio de datos** que muestre la distribución de los precios de los aguacates y las tendencias a lo largo del tiempo, así como las diferencias de precios según el tipo de aguacate y la región.
-- Un **modelo baseline de regresión lineal** que sea capaz de predecir el precio promedio de los aguacates y evaluar si hay potencial para seguir mejorando el modelo.
-- Una conclusión sobre la **viabilidad** del modelo predictivo y las oportunidades para mejorar su rendimiento mediante técnicas más avanzadas o ingeniería de características.
+1. **Dropped Irrelevant Columns**: We removed columns like `City`, `State`, and `Vin`, as they do not significantly impact car price.
+2. **Encoding Categorical Variables**: Used `LabelEncoder` to transform `Make` and `Model` into numerical values.
+3. **Scaling Features**: Applied `MinMaxScaler` to scale `Mileage` between 0 and 1.
 
-## Contribución
-Cualquier colaboración es bienvenida. Puedes contribuir mediante:
-- Propuestas de mejora en la selección y el ajuste de los modelos.
-- Sugerencias para la ingeniería de características.
-- Mejora en las visualizaciones del análisis exploratorio.
+## Feature Engineering
 
-## Contacto
-Para preguntas, comentarios o sugerencias, puedes contactarme a través de mi perfil de GitHub o directamente por correo electrónico.
+1. **Log Transformation of Price**: To reduce skewness, we applied a log transformation to the `Price` variable, creating a new column `Log_Price` to be used as the target variable.
+2. **Vehicle Age**: Calculated the age of each car by subtracting the year of manufacture from the current year (2024).
+3. **Standardization**: Standardized `Mileage` and `Vehicle_Age` for improved model performance.
+
+## Modeling
+
+We tested two main models:
+1. **Linear Regression**: Provided a baseline but had limited performance (R² Score ≈ 0.42).
+2. **Random Forest Regressor**: Achieved significant improvements, with an R² Score of approximately 0.898, capturing about 90% of the variability in car prices.
+
+### Model Performance
+
+- **Linear Regression**:
+  - MSE: 0.181
+  - R² Score: 0.417
+
+- **Random Forest Regressor**:
+  - MSE: 0.0315
+  - R² Score: 0.898
+
+## Results
+
+The Random Forest model performed much better than linear regression, indicating complex, non-linear relationships in the data. The final model explains a large portion of the variance in car prices, making it suitable for practical applications.
+
+## Next Steps
+
+1. **Hyperparameter Tuning**: Use techniques like Grid Search or Random Search to optimize the Random Forest model further.
+2. **Feature Importance Analysis**: Identify which features contribute most to the model's performance.
+3. **Cross-Validation**: Implement cross-validation to ensure model robustness.
+
+---
+
+Feel free to explore the code and run the models. If you have any questions or suggestions, please reach out!
+
+
 
 
 
