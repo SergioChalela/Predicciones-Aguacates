@@ -3,10 +3,10 @@ import numpy as np
 import joblib
 
 # Cargar el modelo y los encoders
-model = joblib.load("decision_tree_model.pkl")
-make_encoder = joblib.load("make_encoder.pkl")
-model_encoder = joblib.load("model_encoder.pkl")
-mileage_scaler = joblib.load("mileage_scaler.pkl")
+model = joblib.load("models/decision_tree_model.pkl")
+make_encoder = joblib.load("encoders_scalers/make_encoder.pkl")
+model_encoder = joblib.load("encoders_scalers/model_encoder.pkl")
+mileage_scaler = joblib.load("encoders_scalers/mileage_scaler.pkl")
 
 st.title("Predicción de Precios de Carros")
 
