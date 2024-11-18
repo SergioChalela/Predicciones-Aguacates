@@ -1,0 +1,17 @@
+dataset:
+  test_file: ../data/test.csv
+  train_file: ../data/train.csv
+hyperparameters:
+  algorithm: auto
+  metric: minkowski
+  n_neighbors: 5
+  weights: uniform
+model_name: K-Nearest Neighbors (KNN)
+performance:
+  MAE: 2368.780735220772
+  MSE: 18919220.428636175
+  R2: 0.8970978654746379
+preprocessing:
+  clustering: KMeans (k=4)
+  encoding: LabelEncoder
+  scaling: MinMaxScaler
