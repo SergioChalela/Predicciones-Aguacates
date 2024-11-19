@@ -68,6 +68,102 @@ pip install -r requirements.txt
 ├── README.md
 
 
+---
+
+## Preparación de los Datos
+
+### Dataset Original
+El dataset incluye las siguientes columnas principales:
+- **Price**: Precio del vehículo (variable objetivo).
+- **Year**: Año del vehículo.
+- **Mileage**: Kilometraje del vehículo.
+- **Make** y **Model**: Marca y modelo del vehículo.
+- **City**, **State**, **Vin**: Información no relevante eliminada.
+
+### Transformaciones
+1. Eliminación de columnas irrelevantes: `City`, `State`, `Vin`.
+2. Codificación:
+   - `Make` y `Model` utilizando `LabelEncoder`.
+3. Escalado:
+   - `Mileage` escalado con `MinMaxScaler`.
+4. Generación de clusters con KMeans:
+   - **Número óptimo de clusters (k): 4.**
+
+---
+
+## Modelos Probados
+
+**Modelos supervisados:**
+1. **Linear Regression**
+   - MSE: 1.4598e+08
+   - R²: 0.205
+2. **Decision Tree Regressor**
+   - MSE (optimizado): 3.46e+07
+   - R²: 0.811
+3. **Random Forest Regressor**
+   - MSE: 1.99e+07
+   - R²: 0.891
+4. **KNN**
+   - MSE: 1.89e+07
+   - R²: 0.897
+5. **Gradient Boosting**
+   - MSE: 4.41e+07
+   - R²: 0.759
+
+**No supervisado:**
+- **KMeans Clustering**
+   - Identificación de 4 clusters para segmentación del dataset.
+
+**Modelo final seleccionado:** KNN, con preprocessing adicional usando clustering KMeans.
+
+---
+
+## Modelo Final
+
+### Detalles del modelo seleccionado
+- **Modelo:** K-Nearest Neighbors (KNN).
+- **Hiperparámetros:**
+  - n_neighbors: 5
+  - metric: Minkowski
+  - weights: uniform
+- **Preprocesamiento:**
+  - Clustering: KMeans con 4 clusters.
+  - Escalado: MinMaxScaler.
+  - Codificación: LabelEncoder.
+- **Rendimiento:**
+  - MSE: 1.89e+07
+  - MAE: 2368.78
+  - R²: 0.897
+
+---
+
+## Resultados
+
+**Gráficos Generados:**
+- Distribución de los precios iniciales y por cluster.
+- Relación entre precio y kilometraje.
+- Representación 3D del clustering aplicado al dataset.
+
+---
+
+## Limitaciones y Próximos Pasos
+
+### Limitaciones
+- El modelo se basa en datos históricos y no tiene en cuenta variables externas como fluctuaciones económicas.
+- La inclusión de clusters puede no siempre mejorar el rendimiento en todos los contextos.
+
+### Mejoras Futuras
+1. Añadir más datos relevantes (tipo de combustible, condiciones del mercado).
+2. Implementar modelos más avanzados (XGBoost, redes neuronales con tuning).
+3. Crear una API para integrar el modelo en aplicaciones web o móviles.
+4. Evaluar la robustez del modelo en diferentes mercados geográficos.
+
+---
+
+¡Gracias por leer!
+
+
+
 
 
 
