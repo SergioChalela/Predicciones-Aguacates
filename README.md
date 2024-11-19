@@ -38,38 +38,6 @@ Este proyecto se centra en:
 - `yaml`
 - `joblib`
 
-Instala las dependencias ejecutando:
-
-```bash
-pip install -r requirements.txt
-
-📂 Predicciones-Precios-Carros
-├── 📂 data
-│   ├── raw_data.csv
-│   ├── semiprocessed_data.csv
-│   ├── processed_data.csv
-│   ├── train.csv
-│   ├── test.csv
-├── 📂 models
-│   ├── final_model.pkl
-├── 📂 encoders_scalers
-│   ├── make_encoder.pkl
-│   ├── model_encoder.pkl
-│   ├── mileage_scaler.pkl
-├── 📂 src
-│   ├── data_processing.py
-│   ├── training.py
-│   ├── evaluation.py
-├── 📂 notebooks
-│   ├── Exploración.ipynb
-│   ├── ModelosSupervisados.ipynb
-│   ├── Clustering.ipynb
-│   ├── RedesNeuronales.ipynb
-├── README.md
-
-
----
-
 ## Preparación de los Datos
 
 ### Dataset Original
@@ -161,6 +129,40 @@ El dataset incluye las siguientes columnas principales:
 ---
 
 ¡Gracias por leer!
+
+Instala las dependencias ejecutando:
+
+```bash
+pip install -r requirements.txt
+
+📂 Predicciones-Precios-Carros
+├── 📂 data
+│   ├── raw_data.csv
+│   ├── semiprocessed_data.csv
+│   ├── processed_data.csv
+│   ├── train.csv
+│   ├── test.csv
+├── 📂 models
+│   ├── final_model.pkl
+├── 📂 encoders_scalers
+│   ├── make_encoder.pkl
+│   ├── model_encoder.pkl
+│   ├── mileage_scaler.pkl
+├── 📂 src
+│   ├── data_processing.py
+│   ├── training.py
+│   ├── evaluation.py
+├── 📂 notebooks
+│   ├── Exploración.ipynb
+│   ├── ModelosSupervisados.ipynb
+│   ├── Clustering.ipynb
+│   ├── RedesNeuronales.ipynb
+├── README.md
+
+
+---
+
+
 
 
 
