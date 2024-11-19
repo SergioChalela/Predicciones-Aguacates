@@ -1,71 +1,72 @@
-# Car Price Prediction
+# Proyecto de Predicción de Precios de Vehículos 🚗
 
-This project aims to predict car prices based on various features such as mileage, year, make, and model. We used data preprocessing, feature engineering, and applied machine learning models to achieve a robust prediction model.
-
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Dataset](#dataset)
-- [Data Preprocessing](#data-preprocessing)
-- [Feature Engineering](#feature-engineering)
-- [Modeling](#modeling)
-- [Results](#results)
-- [Next Steps](#next-steps)
-
-## Project Overview
-
-The goal of this project is to build a predictive model that can estimate the price of a car based on its characteristics. Using machine learning techniques, we improved the model’s performance to explain a significant portion of the variability in car prices.
-
-## Dataset
-
-The dataset contains various features about cars, including:
-- **Price**: Target variable, indicating the car price.
-- **Mileage**: The distance the car has been driven.
-- **Year**: The manufacturing year of the car.
-- **Make**: The brand of the car.
-- **Model**: The model of the car.
-
-## Data Preprocessing
-
-1. **Dropped Irrelevant Columns**: We removed columns like `City`, `State`, and `Vin`, as they do not significantly impact car price.
-2. **Encoding Categorical Variables**: Used `LabelEncoder` to transform `Make` and `Model` into numerical values.
-3. **Scaling Features**: Applied `MinMaxScaler` to scale `Mileage` between 0 and 1.
-
-## Feature Engineering
-
-1. **Log Transformation of Price**: To reduce skewness, we applied a log transformation to the `Price` variable, creating a new column `Log_Price` to be used as the target variable.
-2. **Vehicle Age**: Calculated the age of each car by subtracting the year of manufacture from the current year (2024).
-3. **Standardization**: Standardized `Mileage` and `Vehicle_Age` for improved model performance.
-
-## Modeling
-
-We tested two main models:
-1. **Linear Regression**: Provided a baseline but had limited performance (R² Score ≈ 0.42).
-2. **Random Forest Regressor**: Achieved significant improvements, with an R² Score of approximately 0.898, capturing about 90% of the variability in car prices.
-
-### Model Performance
-
-- **Linear Regression**:
-  - MSE: 0.181
-  - R² Score: 0.417
-
-- **Random Forest Regressor**:
-  - MSE: 0.0315
-  - R² Score: 0.898
-
-## Results
-
-The Random Forest model performed much better than linear regression, indicating complex, non-linear relationships in the data. The final model explains a large portion of the variance in car prices, making it suitable for practical applications.
-
-## Next Steps
-
-1. **Hyperparameter Tuning**: Use techniques like Grid Search or Random Search to optimize the Random Forest model further.
-2. **Feature Importance Analysis**: Identify which features contribute most to the model's performance.
-3. **Cross-Validation**: Implement cross-validation to ensure model robustness.
+Este proyecto tiene como objetivo construir un modelo de Machine Learning capaz de predecir el precio de un vehículo basado en sus características (año, kilometraje, marca, modelo). Incluye técnicas supervisadas y no supervisadas para mejorar la precisión y robustez del modelo.
 
 ---
 
-Feel free to explore the code and run the models. If you have any questions or suggestions, please reach out!
+## Tabla de Contenidos
+1. [Descripción del Proyecto](#descripción-del-proyecto)
+2. [Requisitos](#requisitos)
+3. [Estructura del Proyecto](#estructura-del-proyecto)
+4. [Preparación de los Datos](#preparación-de-los-datos)
+5. [Modelos Probados](#modelos-probados)
+6. [Modelo Final](#modelo-final)
+7. [Resultados](#resultados)
+8. [Limitaciones y Mejoras Futuras](#limitaciones-y-mejoras-futuras)
+
+---
+
+## Descripción del Proyecto
+
+Este proyecto se centra en:
+- Limpiar y transformar datos de un dataset de 852,122 registros.
+- Aplicar técnicas de clustering (KMeans) para segmentar datos en grupos homogéneos.
+- Probar varios modelos supervisados para seleccionar el más adecuado.
+- Generar un modelo final con KNN, optimizado para ofrecer precisión y eficiencia.
+
+---
+
+## Requisitos
+
+### Librerías necesarias:
+- Python 3.8 o superior
+- `pandas`
+- `numpy`
+- `scikit-learn`
+- `matplotlib`
+- `seaborn`
+- `yaml`
+- `joblib`
+
+Instala las dependencias ejecutando:
+
+```bash
+pip install -r requirements.txt
+
+📂 Predicciones-Precios-Carros
+├── 📂 data
+│   ├── raw_data.csv
+│   ├── semiprocessed_data.csv
+│   ├── processed_data.csv
+│   ├── train.csv
+│   ├── test.csv
+├── 📂 models
+│   ├── final_model.pkl
+├── 📂 encoders_scalers
+│   ├── make_encoder.pkl
+│   ├── model_encoder.pkl
+│   ├── mileage_scaler.pkl
+├── 📂 src
+│   ├── data_processing.py
+│   ├── training.py
+│   ├── evaluation.py
+├── 📂 notebooks
+│   ├── Exploración.ipynb
+│   ├── ModelosSupervisados.ipynb
+│   ├── Clustering.ipynb
+│   ├── RedesNeuronales.ipynb
+├── README.md
+
 
 
 
